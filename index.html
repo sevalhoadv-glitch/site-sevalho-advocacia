@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sevalho Advocacia</title>
+<meta name="description" content="Adclylson Sevalho Advocacia e Consultoria. Advocacia empresarial consultiva, preventiva e contenciosa, nas áreas cível e trabalhista, em Manaus/AM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: editorial preto e dourado, fios dourados finos, hero assimétrico com emblema como marca d'água. */
+:root{
+  --ink:#0b0b0c;
+  --ink-2:#121214;
+  --ink-3:#1b1b1f;
+  --gold:#c9a24b;
+  --gold-hi:#e8cb82;
+  --gold-lo:#8c6a1f;
+  --text:#ece7dc;
+  --muted:#a8a295;
+  --line:rgba(201,162,75,.24);
+  --display:"Cormorant Garamond","Times New Roman",serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --maxw:1140px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:.005em}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#111;padding:8px 14px;border-radius:6px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:4px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 15px/1 var(--body);letter-spacing:.02em;text-decoration:none;padding:15px 24px;border-radius:999px;border:1px solid var(--gold);cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold) 55%,#b8903a);color:#14110a;border-color:transparent}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(232,203,130,.55)}
+.btn-line{background:transparent;color:var(--gold-hi)}
+.btn-line:hover{background:rgba(201,162,75,.12);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+/* Cabeçalho */
+header.top{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s}
+header.top.stuck{border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:42px;width:auto}
+.brand b{display:block;font:600 15px/1.1 var(--display);letter-spacing:.2em;color:var(--gold-hi)}
+.brand small{display:block;font:500 9.5px/1.4 var(--body);letter-spacing:.28em;color:var(--muted);margin-top:3px}
+nav.main{display:flex;align-items:center;gap:26px}
+nav.main a.lk{font-size:14px;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--text);opacity:.82;padding:6px 0;position:relative}
+nav.main a.lk::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .25s}
+nav.main a.lk:hover{opacity:1}
+nav.main a.lk:hover::after{right:0}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold-hi);border-radius:10px;width:44px;height:44px;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 82% 30%,rgba(201,162,75,.16),transparent 62%),radial-gradient(600px 400px at 5% 100%,rgba(140,106,31,.14),transparent 60%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:80px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font:600 12px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold);transform-origin:left;animation:draw 1.1s .1s both cubic-bezier(.2,.7,.2,1)}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero h1{font-size:clamp(40px,6.2vw,76px);margin:22px 0 22px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold-hi)}
+.hero p.lead{max-width:56ch;font-size:19px;color:#d5cfc2}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.pillars{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px;padding:0;list-style:none}
+.pillars li{font:500 13px/1 var(--body);letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:9px 16px}
+.hero-mark{display:flex;justify-content:center}
+.hero-mark img{width:min(360px,80%);filter:drop-shadow(0 20px 60px rgba(201,162,75,.25))}
+
+/* Seções */
+section{padding:92px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(34px,4.6vw,54px);margin-top:16px}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:18px}
+
+/* Atuação */
+.tabs{display:inline-flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:999px;background:var(--ink-2);flex-wrap:wrap}
+.tab{font:600 14px/1 var(--body);letter-spacing:.03em;color:var(--muted);background:none;border:0;border-radius:999px;padding:13px 22px;cursor:pointer;transition:background .2s,color .2s}
+.tab:hover{color:var(--text)}
+.tab[aria-selected="true"]{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#14110a}
+.tab-panel{margin-top:28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+.tab-intro{padding:8px 4px}
+.tab-intro h3{font-size:32px;color:var(--gold-hi)}
+.tab-intro p{margin-top:12px;color:var(--muted)}
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.area{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.area h4{margin:0 0 14px;font:600 12px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.area ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.area li{position:relative;padding-left:20px;font-size:15.5px;color:#ddd7ca}
+.area li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:1px;background:var(--gold)}
+
+/* Sobre */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.portrait{position:relative;max-width:430px}
+.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:22px;opacity:.6}
+.portrait img{position:relative;border-radius:22px;aspect-ratio:779/860;object-fit:cover;width:100%;filter:saturate(.92) contrast(1.03)}
+.portrait figcaption{position:absolute;left:0;right:0;bottom:0;padding:70px 20px 18px;border-radius:0 0 22px 22px;background:linear-gradient(transparent,rgba(11,11,12,.9));}
+.portrait figcaption b{display:block;font:600 22px/1.15 var(--display);color:var(--gold-hi)}
+.portrait figcaption span{font-size:13px;letter-spacing:.08em;color:#d8d2c4}
+.about h2{font-size:clamp(32px,4.2vw,50px);margin:16px 0 20px}
+.about p{color:#d5cfc2;margin-bottom:16px;max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.fact{border-top:1px solid var(--gold);padding-top:14px}
+.fact b{display:block;font:600 22px/1.1 var(--display);color:var(--gold-hi)}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* Diagnóstico */
+.diag{position:relative;overflow:hidden;background:radial-gradient(800px 420px at 90% 10%,rgba(201,162,75,.17),transparent 62%),linear-gradient(180deg,var(--ink-2),var(--ink));border-top:1px solid var(--gold)}
+.diag-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.diag h2{font-size:clamp(34px,4.8vw,58px);margin:16px 0 18px}
+.diag h2 em{font-style:italic;font-weight:500;color:var(--gold-hi)}
+.diag .lead{color:#d5cfc2;font-size:18.5px;max-width:58ch}
+.diag .badge{margin-bottom:18px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 0;padding:0;list-style:none}
+.steps3 li{border-top:1px solid var(--gold);padding-top:14px}
+.steps3 b{display:block;font:600 13px/1 var(--body);letter-spacing:.2em;color:var(--gold);margin-bottom:8px}
+.steps3 strong{display:block;font:600 21px/1.15 var(--display);color:var(--gold-hi);margin-bottom:6px}
+.steps3 span{font-size:14.5px;color:var(--muted);display:block}
+.temas{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.temas li{font:500 13px/1 var(--body);letter-spacing:.04em;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(201,162,75,.06)}
+.diag .cta-row{margin-top:30px}
+.diag .fine{margin-top:16px;font-size:13px;color:var(--muted);max-width:60ch}
+.sample{background:var(--ink-3);border:1px solid var(--gold);border-radius:22px;padding:26px 26px 22px;box-shadow:0 30px 70px -30px rgba(201,162,75,.35)}
+.sample .tag{display:flex;justify-content:space-between;align-items:center;font:600 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.sample .tag i{font-style:normal;color:var(--muted);letter-spacing:.1em;font-weight:500}
+.sample svg{display:block;margin:10px auto 0;width:min(300px,100%)}
+.sample .flag{display:block;width:max-content;margin:6px auto 0;padding:7px 18px;border-radius:999px;background:#e0b030;color:#14110a;font:700 13px/1 var(--body);letter-spacing:.16em}
+.sample .rows{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.sample .rows li{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;font-size:13px;color:#ddd7ca}
+.sample .rows .bar{display:flex;height:11px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.06)}
+.sample .rows .bar i{display:block;height:100%}
+.sample .cap{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}
+@media (max-width:900px){.diag-grid{grid-template-columns:1fr;gap:34px}.steps3{grid-template-columns:1fr}}
+@media (max-width:560px){.sample .rows li{grid-template-columns:104px 1fr}}
+
+/* Check-up */
+.checkup{background:linear-gradient(180deg,var(--ink-2),var(--ink))}
+.cu-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+.qs{display:grid;gap:14px}
+.q{background:var(--ink-3);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:14px}
+.q p{font-size:16.5px;color:var(--text)}
+.q .n{font:600 12px/1 var(--body);letter-spacing:.22em;color:var(--gold);margin-right:10px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{font:500 14px/1 var(--body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:11px 18px;cursor:pointer;transition:all .2s}
+.opt:hover{color:var(--text);border-color:var(--gold)}
+.opt[aria-pressed="true"]{background:var(--gold);color:#14110a;border-color:var(--gold);font-weight:600}
+.result{position:sticky;top:96px;background:var(--ink-3);border:1px solid var(--gold);border-radius:20px;padding:28px 26px}
+.result .meter{height:6px;background:rgba(201,162,75,.18);border-radius:99px;overflow:hidden;margin:14px 0 18px}
+.result .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-lo),var(--gold-hi));transition:width .35s}
+.result h3{font-size:28px;color:var(--gold-hi)}
+.result .count{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.result ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px;color:#ddd7ca}
+.result li{padding-left:18px;position:relative}
+.result li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.result .note{margin-top:16px;font-size:13px;color:var(--muted)}
+.result .btn{margin-top:20px;width:100%}
+
+/* Conteúdo */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chip{font:500 14px/1 var(--body);color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:11px 18px;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--text);border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:rgba(201,162,75,.16);color:var(--gold-hi);border-color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{text-align:left;font:inherit;color:inherit;background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:28px 28px 24px;cursor:pointer;display:grid;gap:14px;transition:transform .25s,border-color .25s,background .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold);background:var(--ink-3)}
+.card .meta{display:flex;gap:12px;align-items:center;font:600 11.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.card .meta span+span{color:var(--muted);letter-spacing:.1em;font-weight:500}
+.card h3{font-size:28px}
+.card p{color:var(--muted);font-size:15.5px}
+.card .more{font:600 14px/1 var(--body);color:var(--gold-hi);display:inline-flex;gap:8px;align-items:center}
+.reader{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:5vh 16px}
+.reader.open{display:flex}
+.paper{position:relative;background:var(--ink-2);border:1px solid var(--gold);border-radius:22px;max-width:720px;width:100%;padding:44px 44px 36px;margin:auto}
+.paper h3{font-size:clamp(30px,4vw,42px);margin:14px 0 22px}
+.paper p{margin-bottom:16px;color:#ddd7ca}
+.paper h4{font:600 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+.paper ul{margin:0 0 16px;padding-left:20px;color:#ddd7ca}
+.paper li{margin-bottom:8px}
+.paper .foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.paper .x{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--gold-hi);font-size:20px;cursor:pointer}
+.paper .x:hover{border-color:var(--gold)}
+.paper .cta{margin-top:20px}
+
+.card.feat{grid-column:1/-1;border-color:var(--gold);background:linear-gradient(135deg,rgba(201,162,75,.10),var(--ink-2) 55%)}
+.card.feat h3{font-size:clamp(30px,3.6vw,42px)}
+.badge{display:inline-flex;align-items:center;gap:8px;font:700 11px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:#14110a;background:var(--gold);border-radius:999px;padding:6px 12px}
+.pill{display:inline-flex;align-items:center;gap:10px;margin-top:30px;max-width:100%;text-align:left;font:500 14px/1.4 var(--body);color:var(--text);background:rgba(201,162,75,.10);border:1px solid var(--gold);border-radius:999px;padding:10px 18px 10px 12px;cursor:pointer;transition:background .2s,transform .2s}
+.pill:hover{background:rgba(201,162,75,.2);transform:translateY(-2px)}
+.pill b{flex:none;font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#14110a;background:var(--gold);border-radius:999px;padding:6px 10px}
+.paper a:not(.btn){color:var(--gold-hi);text-underline-offset:3px}
+.paper ol{margin:0 0 16px;padding-left:22px;color:#ddd7ca}
+.paper ol li{margin-bottom:8px}
+
+/* Contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact h2{font-size:clamp(34px,4.6vw,54px);margin:16px 0 18px}
+.contact .intro{color:var(--muted);max-width:46ch}
+.info{margin:30px 0 0;padding:0;list-style:none;display:grid;gap:18px}
+.info li{display:grid;grid-template-columns:96px 1fr;gap:14px;border-top:1px solid var(--line);padding-top:16px}
+.info b{font:600 12px/1.6 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.info a{color:var(--text);text-decoration-color:var(--gold);text-underline-offset:4px}
+.info a:hover{color:var(--gold-hi)}
+form.wa{background:var(--ink-2);border:1px solid var(--line);border-radius:22px;padding:30px 28px;display:grid;gap:16px}
+form.wa h3{font-size:28px;color:var(--gold-hi)}
+form.wa p.sub{font-size:14.5px;color:var(--muted);margin-top:-6px}
+label{display:grid;gap:8px;font:600 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+input,select,textarea{font:400 16px/1.4 var(--body);color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px 16px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+textarea{min-height:110px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat}
+
+/* Rodapé */
+footer{padding:48px 0 60px;background:#080809}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+footer .brand img{height:52px}
+footer small.legal{display:block;color:var(--muted);font-size:13px;line-height:1.7;max-width:62ch}
+footer .sig{font-size:14px;color:var(--text);margin-top:14px}
+footer .copy{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#14110a;box-shadow:0 14px 34px -10px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.1) inset;transition:transform .2s}
+.fab:hover{transform:scale(1.07)}
+.fab svg{width:28px;height:28px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:48px;padding-bottom:56px}
+  .hero-mark{order:-1;justify-content:flex-start}
+  .hero-mark img{width:150px}
+  .tab-panel,.about,.cu-grid,.contact,.foot-grid{grid-template-columns:1fr}
+  .about{gap:44px}
+  .portrait{margin:0 auto 14px}
+  .result{position:static}
+  .cards{grid-template-columns:1fr}
+  section{padding:68px 0}
+  .menu-btn{display:block}
+  nav.main{position:absolute;left:0;right:0;top:72px;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px 20px 20px;display:none}
+  nav.main.open{display:flex}
+  nav.main a.lk{padding:16px 0;border-bottom:1px solid var(--line);font-size:16px}
+  nav.main a.lk::after{display:none}
+  nav.main .btn{margin-top:16px}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .areas{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .info li{grid-template-columns:1fr;gap:4px}
+  .paper{padding:36px 22px 28px}
+  .brand small{display:none}
+  .tabs{border-radius:22px;width:100%}
+  .tab{flex:1 1 auto;padding:13px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo-principal">Ir para o conteúdo</a>
+
+<header class="top" id="topo">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="Sevalho Advocacia, início">
+      <img src="img/emblema.png" alt="" width="46" height="42">
+      <span><b>ADCLYLSON SEVALHO</b><small>ADVOCACIA E CONSULTORIA</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="nav" aria-label="Principal">
+      <a class="lk" href="#diagnostico">Diagnóstico</a>
+      <a class="lk" href="#atuacao">Atuação</a>
+      <a class="lk" href="#sobre">Sobre</a>
+      <a class="lk" href="#checkup">Check-up</a>
+      <a class="lk" href="#conteudo">Conteúdo</a>
+      <a class="lk" href="#contato">Contato</a>
+      <a class="btn btn-gold wa-link" data-msg="Olá, Dr. Adclylson. Gostaria de falar sobre uma demanda jurídica da minha empresa." href="#contato" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.07L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.43 1.34-1.97 1.39-.5.05-1.13.07-1.82-.12a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.78-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.25.58.84 2 .91 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.18 1.4Z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+<section class="hero" id="inicio" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Advocacia empresarial · Manaus/AM</span>
+      <h1>Segurança jurídica para a <em>rotina</em> e para as decisões da sua empresa.</h1>
+      <p class="lead">Atuação consultiva, preventiva e contenciosa, nas áreas cível e trabalhista, ao lado de quem administra e decide.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold wa-link" data-msg="Olá, Dr. Adclylson. Gostaria de falar sobre uma demanda jurídica da minha empresa." href="#contato" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.07L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.43 1.34-1.97 1.39-.5.05-1.13.07-1.82-.12a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.78-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.25.58.84 2 .91 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.18 1.4Z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a class="btn btn-line" href="#diagnostico">Diagnóstico de risco trabalhista</a>
+      </div>
+      <button class="pill" type="button" id="pill6x1"><b>Novo</b><span>Fim da escala 6x1: a sua empresa está preparada? <span aria-hidden="true">→</span></span></button>
+      <ul class="pillars" aria-label="Frentes de atuação">
+        <li>Consultivo</li><li>Preventivo</li><li>Contencioso</li><li>Cível e Trabalhista</li>
+      </ul>
+    </div>
+    <div class="hero-mark" aria-hidden="true"><img src="img/emblema.png" alt="" width="360" height="326"></div>
+  </div>
+</section>
+
+<section class="diag" id="diagnostico" aria-labelledby="diagTitulo">
+  <div class="wrap diag-grid">
+    <div>
+      <span class="badge">Diagnóstico de risco trabalhista</span>
+      <h2 id="diagTitulo">Descubra onde a rotina trabalhista da sua empresa está <em>exposta</em>.</h2>
+      <p class="lead">Responda a um questionário de cerca de 5 minutos. Em até 5 dias úteis, o escritório envia um relatório individual com o nível de atenção da empresa, os pontos que merecem correção e as providências sugeridas.</p>
+      <ol class="steps3">
+        <li><b>01</b><strong>Responda</strong><span>Questionário objetivo sobre contratação, jornada, encargos e segurança do trabalho.</span></li>
+        <li><b>02</b><strong>Receba o relatório</strong><span>Análise em PDF, com semáforo de risco e panorama por tema, em até 5 dias úteis.</span></li>
+        <li><b>03</b><strong>Decida</strong><span>Use o relatório para priorizar medidas que reduzam o risco trabalhista da empresa.</span></li>
+      </ol>
+      <ul class="temas" aria-label="Temas analisados">
+        <li>Contratação</li><li>Jornada e horas extras</li><li>Escala 6x1</li><li>Remuneração e encargos</li><li>Saúde e segurança (NR-1)</li><li>Assédio e compliance</li><li>Norma coletiva</li><li>Terceirização</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://forms.gle/V83D57FQR7C4X3vN9" target="_blank" rel="noopener">Responder o diagnóstico <span aria-hidden="true">→</span></a>
+        <a class="btn btn-line wa-link" data-msg="Olá, Dr. Adclylson. Gostaria de saber mais sobre o Diagnóstico de risco trabalhista para a minha empresa." href="#contato" target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
+      </div>
+      <p class="fine">As informações enviadas são tratadas com sigilo, nos termos da LGPD. O relatório é preliminar e orientativo e não substitui a análise jurídica do caso concreto.</p>
+    </div>
+    <aside class="sample" aria-label="Exemplo ilustrativo do relatório">
+      <div class="tag"><span>Relatório do diagnóstico</span><i>Exemplo ilustrativo</i></div>
+      <svg viewBox="0 0 300 175" role="img" aria-label="Medidor de risco com ponteiro na faixa amarela">
+        <path d="M30,150 A120,120 0 0 1 52.9,79.5" stroke="#6aa84f" stroke-width="24" fill="none"/>
+        <path d="M52.9,79.5 A120,120 0 0 1 150,30" stroke="#e0b030" stroke-width="24" fill="none"/>
+        <path d="M150,30 A120,120 0 0 1 270,150" stroke="#d9534f" stroke-width="24" fill="none"/>
+        <line x1="150" y1="150" x2="113" y2="72" stroke="#ece7dc" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="150" cy="150" r="9" fill="#ece7dc"/>
+        <text x="22" y="170" font-size="10" fill="#a8a295" font-family="Hanken Grotesk,sans-serif">0%</text><text x="258" y="170" font-size="10" fill="#a8a295" font-family="Hanken Grotesk,sans-serif">100%</text>
+      </svg>
+      <span class="flag">NÍVEL DE ATENÇÃO: AMARELO</span>
+      <ul class="rows">
+        <li>Jornada<span class="bar"><i style="width:45%;background:#6aa84f"></i><i style="width:35%;background:#e0b030"></i><i style="width:20%;background:#d9534f"></i></span></li>
+        <li>Contratação<span class="bar"><i style="width:70%;background:#6aa84f"></i><i style="width:30%;background:#e0b030"></i></span></li>
+        <li>Saúde e segurança<span class="bar"><i style="width:30%;background:#6aa84f"></i><i style="width:30%;background:#e0b030"></i><i style="width:40%;background:#d9534f"></i></span></li>
+        <li>Escala 6x1<span class="bar"><i style="width:100%;background:#e0b030"></i></span></li>
+      </ul>
+      <p class="cap">Os dados acima são fictícios e servem apenas para ilustrar o formato do relatório.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="atuacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Atuação</span>
+      <h2>Três formas de proteger a empresa.</h2>
+      <p>Escolha a frente e veja como atuamos nas áreas trabalhista e cível.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Frentes de atuação" id="tabs"></div>
+    <div class="tab-panel" id="tabPanel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about">
+    <figure class="portrait" style="margin:0">
+      <img src="img/dr-adclylson.jpg" alt="Dr. Adclylson Nascimento Sevalho trabalhando em seu escritório" width="779" height="860" loading="lazy">
+      <figcaption><b>Adclylson Nascimento Sevalho</b><span>Advogado · OAB/AM nº 17.321</span></figcaption>
+    </figure>
+    <div>
+      <span class="eyebrow">Sobre</span>
+      <h2>Advocacia pensada para a realidade das empresas.</h2>
+      <p>O Dr. Adclylson Nascimento Sevalho atua com foco em empresas, de forma consultiva, preventiva e contenciosa, nas áreas cível e trabalhista.</p>
+      <p>No consultivo e no preventivo, o objetivo é organizar contratos, rotinas e documentos para reduzir riscos. Quando o litígio é inevitável, a empresa conta com defesa técnica e acompanhamento próximo do processo.</p>
+      <div class="facts">
+        <div class="fact"><b>Consultivo</b><span>Orientação para decisões do dia a dia</span></div>
+        <div class="fact"><b>Preventivo</b><span>Contratos e rotinas em ordem</span></div>
+        <div class="fact"><b>Contencioso</b><span>Defesa técnica em juízo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="checkup" id="checkup">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Check-up jurídico preventivo</span>
+      <h2>Seis perguntas para enxergar pontos de atenção.</h2>
+      <p>Uma triagem rápida e informativa. Responda sobre a sua empresa e veja onde vale uma conversa.</p>
+    </div>
+    <div class="cu-grid">
+      <div class="qs" id="qs"></div>
+      <aside class="result" aria-live="polite">
+        <span class="count" id="cuCount">0 de 6 respondidas</span>
+        <div class="meter"><i id="cuMeter"></i></div>
+        <h3 id="cuTitle">Responda para ver o resultado</h3>
+        <ul id="cuList"></ul>
+        <p class="note">Triagem de caráter informativo. Não substitui a análise jurídica do caso concreto.</p>
+        <a class="btn btn-gold" id="cuWa" aria-disabled="true" href="#contato" target="_blank" rel="noopener">Conversar sobre o resultado</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="conteudo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Conteúdo jurídico</span>
+      <h2>Informação para quem administra uma empresa.</h2>
+      <p>Artigos objetivos sobre temas trabalhistas e cíveis do cotidiano empresarial.</p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por área"></div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="contato" style="border-bottom:0">
+  <div class="wrap contact">
+    <div>
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos conversar sobre a sua empresa.</h2>
+      <p class="intro">O primeiro contato pode ser pelo WhatsApp. Conte brevemente o que precisa e retornamos para combinar os próximos passos.</p>
+      <ul class="info">
+        <li><b>WhatsApp</b><span><a class="wa-link" data-msg="Olá, Dr. Adclylson. Gostaria de falar sobre uma demanda jurídica da minha empresa." href="#contato" target="_blank" rel="noopener">(92) 98646-1674</a></span></li>
+        <li><b>E-mail</b><span><a href="mailto:adclylson@sevalhoadvocacia.com.br">adclylson@sevalhoadvocacia.com.br</a></span></li>
+        <li><b>Endereço</b><span>Rua Professora Cacilda Braule, nº 90, Núcleo 12<br>Bairro Cidade Nova, Manaus/AM<br>CEP 69.096-440<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Professora+Cacilda+Braule+90+Cidade+Nova+Manaus+AM" target="_blank" rel="noopener">Abrir no Google Maps</a></span></li>
+      </ul>
+    </div>
+    <form class="wa" id="waForm" novalidate>
+      <h3>Mensagem pelo WhatsApp</h3>
+      <p class="sub">Preencha e o WhatsApp abre com a mensagem pronta para enviar.</p>
+      <label for="fNome">Seu nome<input id="fNome" type="text" autocomplete="name" placeholder="Nome e sobrenome"></label>
+      <label for="fEmp">Empresa<input id="fEmp" type="text" autocomplete="organization" placeholder="Nome da empresa"></label>
+      <label for="fAss">Assunto
+        <select id="fAss">
+          <option>Consultoria jurídica para a empresa</option>
+          <option>Prevenção e revisão de rotinas trabalhistas</option>
+          <option>Revisão ou elaboração de contratos</option>
+          <option>Defesa em ação trabalhista</option>
+          <option>Cobrança ou demanda cível</option>
+          <option>Outro assunto</option>
+        </select>
+      </label>
+      <label for="fMsg">Mensagem<textarea id="fMsg" placeholder="Conte em poucas palavras o que você precisa"></textarea></label>
+      <a class="btn btn-gold" id="waSend" href="#contato" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.07L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.43 1.34-1.97 1.39-.5.05-1.13.07-1.82-.12a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.78-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.25.58.84 2 .91 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.18 1.4Z"/></svg>
+        Abrir no WhatsApp
+      </a>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="Voltar ao topo">
+          <img src="img/emblema.png" alt="" width="58" height="52">
+          <span><b>ADCLYLSON SEVALHO</b><small>ADVOCACIA E CONSULTORIA</small></span>
+        </a>
+        <p class="sig">Adclylson Nascimento Sevalho · Advogado · OAB/AM nº 17.321</p>
+      </div>
+      <small class="legal">Este site tem caráter exclusivamente informativo, em observância ao Código de Ética e Disciplina e ao Provimento nº 205/2021 do Conselho Federal da OAB. Não há promessa de resultado, e o conteúdo publicado não substitui a consulta a um advogado para a análise do caso concreto.</small>
+    </div>
+    <p class="copy">© <span id="yr">2026</span> Sevalho Advocacia. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a class="fab wa-link" data-msg="Olá, Dr. Adclylson. Gostaria de falar sobre uma demanda jurídica da minha empresa." href="#contato" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.07L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.43 1.34-1.97 1.39-.5.05-1.13.07-1.82-.12a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.78-4.16-4.92-4.35-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.25.58.84 2 .91 2.15.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.18 1.4Z"/></svg>
+</a>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle" aria-hidden="true">
+  <article class="paper" id="paper"></article>
+</div>
+
+<script>
+(function(){
+  var PHONE='5592986461674';
+  function wa(msg){return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg);}
+  function $(s,r){return (r||document).querySelector(s);}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+
+  /* Links de WhatsApp fixos */
+  $$('.wa-link').forEach(function(a){a.href=wa(a.getAttribute('data-msg'));});
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* Cabeçalho */
+  var top=$('#topo');
+  function onScroll(){top.classList.toggle('stuck',window.scrollY>8);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var mb=$('#menuBtn'),nav=$('#nav');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
+  $$('#nav a.lk').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+
+  /* Atuação */
+  var MODES=[
+    {id:'consultivo',nome:'Consultivo',titulo:'Orientação antes da decisão',txt:'Pareceres e acompanhamento contínuo para que a empresa decida com base jurídica.',
+      trab:['Orientação sobre rotinas de RH e gestão de pessoas','Análise de normas coletivas aplicáveis à categoria','Pareceres sobre dispensas, advertências e processos disciplinares'],
+      civ:['Revisão e elaboração de contratos empresariais','Análise de riscos em negociações e parcerias','Orientação sobre responsabilidade civil da empresa']},
+    {id:'preventivo',nome:'Preventivo',titulo:'Organização para reduzir litígios',txt:'Revisão de documentos e rotinas para corrigir falhas antes que virem processo.',
+      trab:['Auditoria de documentação e rotinas trabalhistas','Revisão de contratos de trabalho e de prestação de serviços','Orientação a gestores sobre condutas de risco'],
+      civ:['Padronização de contratos e termos da empresa','Política de cobrança e notificações extrajudiciais','Estruturação de provas e documentos de operações']},
+    {id:'contencioso',nome:'Contencioso',titulo:'Defesa técnica em juízo',txt:'Atuação em processos judiciais e administrativos, com acompanhamento próximo.',
+      trab:['Defesa em reclamações trabalhistas','Acompanhamento de audiências, perícias e recursos','Cumprimento de sentença e execução'],
+      civ:['Ações de cobrança e execução de títulos','Defesa em demandas contratuais e indenizatórias','Negociação e acordos judiciais e extrajudiciais']}
+  ];
+  var tabs=$('#tabs'),panel=$('#tabPanel'),cur=0;
+  function li(a){return a.map(function(t){return '<li>'+t+'</li>';}).join('');}
+  function drawPanel(){
+    var m=MODES[cur];
+    panel.innerHTML='<div class="tab-intro"><h3>'+m.titulo+'</h3><p>'+m.txt+'</p></div>'+
+      '<div class="areas"><div class="area"><h4>Trabalhista</h4><ul>'+li(m.trab)+'</ul></div><div class="area"><h4>Cível</h4><ul>'+li(m.civ)+'</ul></div></div>';
+    $$('.tab',tabs).forEach(function(b,i){b.setAttribute('aria-selected',i===cur);b.tabIndex=i===cur?0:-1;});
+    panel.setAttribute('aria-labelledby','tab-'+m.id);
+  }
+  MODES.forEach(function(m,i){
+    var b=document.createElement('button');b.className='tab';b.type='button';b.id='tab-'+m.id;b.setAttribute('role','tab');b.textContent=m.nome;
+    b.addEventListener('click',function(){cur=i;drawPanel();});
+    b.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){cur=(cur+(e.key==='ArrowRight'?1:-1)+MODES.length)%MODES.length;drawPanel();$$('.tab',tabs)[cur].focus();}
+    });
+    tabs.appendChild(b);
+  });
+  drawPanel();
+
+  /* Check-up */
+  var QS=[
+    {q:'Os contratos com clientes e fornecedores são formalizados por escrito?',alerta:'Contratos sem forma escrita ou sem cláusulas claras dificultam a cobrança e a defesa em caso de disputa.'},
+    {q:'A jornada de trabalho é registrada e conferida conforme a lei e a norma coletiva da categoria?',alerta:'Falhas no controle de jornada estão entre as causas mais comuns de reclamações trabalhistas.'},
+    {q:'Documentos de admissão, férias, rescisão e saúde e segurança estão organizados e arquivados?',alerta:'Sem documentos organizados, a empresa pode ter dificuldade de comprovar o que pagou e o que cumpriu.'},
+    {q:'Prestadores contratados como PJ ou autônomos têm a relação revista periodicamente?',alerta:'A Justiça do Trabalho analisa a realidade da relação, e não apenas o rótulo do contrato.'},
+    {q:'Existe uma rotina de cobrança, com notificações formais, antes de o crédito virar litígio?',alerta:'Cobrança sem registro e sem prazos documentados enfraquece a posição da empresa em eventual ação.'},
+    {q:'Os gestores recebem orientação sobre condutas que geram risco trabalhista?',alerta:'Condutas de lideranças, como cobranças excessivas ou jornada sem registro, podem gerar passivo para a empresa.'}
+  ];
+  var ans=new Array(QS.length).fill(null);
+  var qs=$('#qs');
+  QS.forEach(function(item,i){
+    var d=document.createElement('div');d.className='q';
+    d.innerHTML='<p><span class="n">'+String(i+1).padStart(2,'0')+'</span>'+item.q+'</p><div class="opts" role="group" aria-label="Resposta da pergunta '+(i+1)+'"></div>';
+    var box=$('.opts',d);
+    [['sim','Sim'],['nao','Não'],['ns','Não sei']].forEach(function(o){
+      var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=o[1];b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){ans[i]=o[0];$$('.opt',box).forEach(function(x){x.setAttribute('aria-pressed',x===b);});calc();});
+      box.appendChild(b);
+    });
+    qs.appendChild(d);
+  });
+  function calc(){
+    var done=ans.filter(function(a){return a!==null;}).length;
+    $('#cuCount').textContent=done+' de '+QS.length+' respondidas';
+    $('#cuMeter').style.width=(done/QS.length*100)+'%';
+    var list=$('#cuList'),title=$('#cuTitle'),btn=$('#cuWa');
+    list.innerHTML='';
+    if(done<QS.length){title.textContent='Responda para ver o resultado';btn.setAttribute('aria-disabled','true');btn.href='#contato';return;}
+    var pts=[];ans.forEach(function(a,i){if(a!=='sim')pts.push(i);});
+    if(pts.length===0){title.textContent='Boa base de organização';list.innerHTML='<li>Suas respostas indicam rotinas bem estruturadas. Revisões periódicas ajudam a manter o nível.</li>';}
+    else{
+      title.textContent=pts.length<=2?'Alguns pontos de atenção':'Vale uma análise com calma';
+      list.innerHTML=pts.map(function(i){return '<li>'+QS[i].alerta+'</li>';}).join('');
+    }
+    var msg='Olá, Dr. Adclylson. Fiz o check-up preventivo no site e tenho '+pts.length+' ponto(s) de atenção. Gostaria de conversar sobre a situação da minha empresa.';
+    btn.href=wa(msg);btn.removeAttribute('aria-disabled');
+  }
+
+  /* Artigos */
+  var FOOT='Conteúdo informativo. Cada situação exige análise específica, e a legislação e a jurisprudência podem mudar com o tempo.';
+  var ARTS=[
+    {id:'escala6x1',destaque:true,atualizado:'18/11/2026',cat:'Trabalhista',min:6,t:'A sua empresa está preparada para o fim da escala 6x1?',
+     lead:'A Emenda Constitucional 141/2026 já foi promulgada e o prazo para adaptar escalas e rotinas está correndo. Veja o que muda e como se organizar.',
+     body:['<p>A mudança deixou de ser projeto. A Emenda Constitucional nº 141/2026, que acaba com a escala 6x1 e garante dois dias de descanso semanal remunerado, foi promulgada em 16 de outubro de 2026. O prazo para as empresas se adaptarem já está correndo.</p>',
+       '<h4>O que a emenda prevê</h4><ul><li>Fim da escala 6x1, com dois dias de descanso semanal remunerado, sendo um deles preferencialmente aos domingos.</li><li>Jornada máxima de 42 horas semanais a partir de meados de dezembro de 2026, 60 dias após a publicação da emenda.</li><li>Jornada máxima de 40 horas semanais cerca de 14 meses após a publicação, por volta de dezembro de 2027.</li><li>Limite diário de 8 horas.</li><li>Proibição de redução salarial, inclusive sobre os pisos salariais das categorias.</li></ul>',
+       '<h4>Onde estão as flexibilidades</h4><ul><li><b>Compensação pela média:</b> os dois dias de descanso por semana podem ser compensados na média do mês, desde que haja ao menos um dia de descanso a cada sete dias.</li><li><b>Normas coletivas:</b> durante a transição, convenções e acordos coletivos podem ajustar a distribuição da jornada diária para chegar às 42 horas semanais, mantidos os dois dias de descanso. Em caráter excepcional, também podem prever um regime compensatório diferente do 5x2.</li><li><b>Maiores remunerações:</b> empregados com diploma de nível superior e salário a partir de R$ 21.188,87 (2,5 vezes o teto do RGPS) podem ter a jornada negociada diretamente, mantido o descanso semanal remunerado.</li><li><b>Pequenos negócios:</b> uma lei complementar poderá prever medidas de adaptação para microempreendedores individuais, microempresas e empresas de pequeno porte.</li><li><b>Jornadas menores:</b> escalas que já sejam de 40 horas ou menos não serão reduzidas proporcionalmente.</li><li><b>Contratos públicos:</b> há prazo próprio para trabalhadores terceirizados de contratos com a administração pública.</li></ul>',
+       '<h4>Checklist para a empresa</h4><ol><li>Mapear as escalas atuais: quem trabalha hoje em 6x1 e em outros regimes, como 12x36 e turnos, por setor e por posto.</li><li>Medir o impacto: horas a cobrir, necessidade de novas contratações, reorganização de turnos e custo de horas extras.</li><li>Revisar o controle de jornada, o banco de horas e os acordos de compensação existentes.</li><li>Conferir a convenção e os acordos coletivos da categoria e avaliar a negociação com o sindicato.</li><li>Revisar a remuneração variável e por hora, para assegurar que não haja redução salarial.</li><li>Atualizar escalas, contratos e comunicados internos, e orientar os gestores.</li><li>Acompanhar a regulamentação, em especial a lei complementar para MEI, ME e EPP.</li></ol>',
+       '<h4>Pontos que dependem de análise específica</h4><p>Regimes especiais, como 12x36, trabalho por turnos, doméstico e rural, e a relação da emenda com normas coletivas já vigentes exigem leitura cuidadosa do texto final e da regulamentação. Cada empresa tem escalas, categorias e acordos próprios, e a solução de uma pode não servir para outra.</p>',
+       '<h4>O risco de deixar para depois</h4><p>Escalas fora dos novos limites e descanso não concedido podem gerar passivo trabalhista, como pagamento de horas extras e discussões sobre repouso não observado. Ajustar com antecedência e de forma documentada é a maneira mais segura de reduzir esse risco. Se a sua empresa ainda não fez esse mapeamento, o momento de começar é agora.</p>',
+       '<h4>Fontes</h4><ul><li><a href="https://www12.senado.leg.br/noticias/materias/2026/11/13/senado-aprova-fim-da-6x1-e-garante-dois-dias-de-descanso-semanal" target="_blank" rel="noopener">Senado Notícias, 13/11/2026: Senado aprova fim da 6x1 e garante dois dias de descanso semanal</a></li><li><a href="https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/congresso-promulga-emenda-do-fim-da-6x1-escala-5x2-comeca-em-60-dias" target="_blank" rel="noopener">Agência Brasil, 16/10/2026: Congresso promulga emenda do fim da 6x1; escala 5x2 começa em 60 dias</a></li><li><a href="https://www12.senado.leg.br/noticias/materias/2026/10/16/congresso-promulga-o-fim-da-escala-6x1-e-aposentadoria-de-agentes-de-saude" target="_blank" rel="noopener">Senado Notícias, 16/10/2026: Congresso promulga o fim da escala 6x1</a></li></ul><p>Informações conferidas em 18/11/2026 em reportagens oficiais. Consulte sempre o texto da Emenda Constitucional 141/2026.</p>']},
+    {id:'auditoria',cat:'Trabalhista',min:4,t:'Auditoria trabalhista preventiva: o que revisar antes de virar processo',
+     lead:'Uma revisão periódica de rotinas e documentos mostra falhas enquanto ainda é possível corrigi-las.',
+     body:['<p>A auditoria trabalhista preventiva é a revisão organizada das rotinas de pessoal e dos documentos da empresa. O objetivo é identificar inconsistências antes que cheguem à Justiça do Trabalho.</p>',
+       '<h4>O que costuma entrar na revisão</h4><ul><li>Registro de jornada, horas extras e banco de horas.</li><li>Cumprimento da convenção ou acordo coletivo da categoria.</li><li>Férias, 13º salário, FGTS e verbas rescisórias, com seus prazos.</li><li>Documentos de admissão, exames e treinamentos de saúde e segurança.</li><li>Contratos com prestadores de serviço e terceirizadas.</li></ul>',
+       '<h4>Por que não deixar para depois</h4><p>Em regra, o trabalhador pode reclamar créditos dos últimos cinco anos do contrato, até dois anos depois do seu fim. Por isso, falhas de períodos antigos ainda podem ser discutidas. Corrigir a rotina agora reduz o risco para frente e ajuda a documentar o que foi cumprido.</p>']},
+    {id:'pj',cat:'Trabalhista',min:4,t:'Contratação de prestadores como PJ: onde está o risco de vínculo',
+     lead:'O contrato é importante, mas a Justiça examina como a relação funciona na prática.',
+     body:['<p>Contratar profissionais como pessoa jurídica é uma prática comum e pode ser legítima quando a relação é, de fato, de prestação de serviços autônoma.</p>',
+       '<h4>O critério é a realidade da relação</h4><p>A CLT define como empregado quem presta serviço com pessoalidade, de forma não eventual, mediante pagamento e sob subordinação. Se esses elementos aparecem na prática, a Justiça do Trabalho pode reconhecer o vínculo, mesmo que exista um contrato de prestação de serviços entre empresas.</p>',
+       '<h4>Cuidados na estruturação</h4><ul><li>Contrato escrito, com objeto e entregas definidos.</li><li>Autonomia real na execução, sem controle de horário e ordens diretas como em um empregado.</li><li>Possibilidade de o prestador atender outros clientes.</li><li>Revisão periódica da relação, quando o dia a dia mudar.</li></ul>',
+       '<p>O tema é objeto de debate no Supremo Tribunal Federal. Vale acompanhar o entendimento vigente antes de estruturar ou revisar esse tipo de contratação.</p>']},
+    {id:'contratos',cat:'Cível',min:4,t:'Cláusulas que não podem faltar em um contrato empresarial',
+     lead:'Um contrato claro previne conflitos e facilita a defesa dos direitos da empresa se algo der errado.',
+     body:['<p>Contratos redigidos às pressas ou copiados de modelos genéricos costumam deixar lacunas justamente nos pontos que geram disputa.</p>',
+       '<h4>Itens que merecem atenção</h4><ul><li>Qualificação completa das partes e de quem assina pela empresa.</li><li>Objeto e escopo descritos com precisão.</li><li>Preço, forma e prazo de pagamento, reajuste e encargos por atraso.</li><li>Prazo de vigência, renovação e hipóteses de rescisão.</li><li>Multas e penalidades proporcionais ao descumprimento.</li><li>Confidencialidade e tratamento de dados pessoais, conforme a LGPD.</li><li>Foro competente para eventuais disputas.</li></ul>',
+       '<h4>A forma de assinar importa</h4><p>A maneira como o contrato é assinado pode influenciar se ele poderá ser usado diretamente como título executivo extrajudicial, conforme os requisitos do Código de Processo Civil. Vale definir a forma de assinatura desde o início.</p>']},
+    {id:'cobranca',cat:'Cível',min:3,t:'Cobrança extrajudicial: o caminho antes da ação',
+     lead:'Organizar a cobrança desde o início aumenta as chances de resolver sem processo e fortalece a empresa se for preciso ir a juízo.',
+     body:['<p>Antes de ajuizar uma ação, a empresa pode adotar etapas que, além de pressionar pelo pagamento, produzem provas úteis.</p>',
+       '<h4>Etapas comuns</h4><ul><li>Reunir contrato, notas fiscais, comprovantes de entrega e troca de mensagens.</li><li>Enviar notificação formal, com valor, prazo e forma de pagamento.</li><li>Registrar propostas de negociação e respostas do devedor.</li><li>Avaliar o protesto do título, quando for cabível.</li><li>Só então analisar a ação de cobrança ou a execução de título extrajudicial.</li></ul>',
+       '<h4>Atenção aos prazos</h4><p>Os prazos de prescrição variam conforme o tipo de crédito e de documento. Adiar a cobrança sem acompanhamento pode comprometer a possibilidade de recuperar o valor.</p>']}
+  ];
+  var cards=$('#cards'),chips=$('#chips'),filter='Todos';
+  function drawCards(){
+    cards.innerHTML='';
+    ARTS.filter(function(a){return filter==='Todos'||a.cat===filter;}).forEach(function(a){
+      var b=document.createElement('button');b.type='button';b.className='card'+(a.destaque?' feat':'');
+      b.innerHTML='<div class="meta">'+(a.destaque?'<span class="badge">Em destaque</span>':'')+'<span>'+a.cat+'</span><span>'+a.min+' min de leitura'+(a.atualizado?' · atualizado em '+a.atualizado:'')+'</span></div><h3>'+a.t+'</h3><p>'+a.lead+'</p><span class="more">Ler artigo <span aria-hidden="true">→</span></span>';
+      b.addEventListener('click',function(){openArt(a,b);});
+      cards.appendChild(b);
+    });
+  }
+  ['Todos','Trabalhista','Cível'].forEach(function(n){
+    var c=document.createElement('button');c.type='button';c.className='chip';c.textContent=n;c.setAttribute('aria-pressed',n===filter);
+    c.addEventListener('click',function(){filter=n;$$('.chip',chips).forEach(function(x){x.setAttribute('aria-pressed',x===c);});drawCards();});
+    chips.appendChild(c);
+  });
+  drawCards();
+
+  function byId(id){return ARTS.filter(function(a){return a.id===id;})[0];}
+  var reader=$('#reader'),paper=$('#paper'),lastFocus=null;
+  function openArt(a,trigger){
+    lastFocus=trigger;
+    paper.innerHTML='<button class="x" type="button" aria-label="Fechar artigo">×</button><div class="eyebrow">'+a.cat+' · '+a.min+' min de leitura</div><h3 id="rTitle">'+a.t+'</h3>'+a.body.join('')+
+      '<p class="foot">'+FOOT+'</p><a class="btn btn-gold cta wa-link2" target="_blank" rel="noopener" href="'+wa('Olá, Dr. Adclylson. Li o artigo "'+a.t+'" no site e gostaria de conversar sobre a minha empresa.')+'">Conversar sobre o tema</a>';
+    reader.classList.add('open');reader.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    $('.x',paper).addEventListener('click',closeArt);$('.x',paper).focus();reader.scrollTop=0;
+  }
+  function closeArt(){reader.classList.remove('open');reader.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
+  reader.addEventListener('click',function(e){if(e.target===reader)closeArt();});
+  $('#pill6x1').addEventListener('click',function(e){openArt(byId('escala6x1'),e.currentTarget);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&reader.classList.contains('open'))closeArt();});
+
+  /* Formulário que monta a mensagem de WhatsApp */
+  var fN=$('#fNome'),fE=$('#fEmp'),fA=$('#fAss'),fM=$('#fMsg'),send=$('#waSend');
+  function build(){
+    var m='Olá, Dr. Adclylson.';
+    if(fN.value.trim())m+=' Meu nome é '+fN.value.trim()+'.';
+    if(fE.value.trim())m+=' Represento a empresa '+fE.value.trim()+'.';
+    m+=' Assunto: '+fA.value+'.';
+    if(fM.value.trim())m+=' '+fM.value.trim();
+    send.href=wa(m);
+  }
+  [fN,fE,fM].forEach(function(el){el.addEventListener('input',build);});fA.addEventListener('change',build);build();
+  $('#waForm').addEventListener('submit',function(e){e.preventDefault();});
+})();
+</script>
+</body>
+</html>
