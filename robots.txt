@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sevalhoadvocacia.com.br/sitemap.xml
